@@ -132,6 +132,7 @@ const CLAUDE_DRIVER_KIND = ProviderDriverKind.make("claudeAgent");
 const CURSOR_DRIVER_KIND = ProviderDriverKind.make("cursor");
 const GROK_DRIVER_KIND = ProviderDriverKind.make("grok");
 const KIMI_DRIVER_KIND = ProviderDriverKind.make("kimi");
+const OPENROUTER_DRIVER_KIND = ProviderDriverKind.make("openrouter");
 const OPENCODE_DRIVER_KIND = ProviderDriverKind.make("opencode");
 
 export const DEFAULT_MODEL = "gpt-5.4";
@@ -143,6 +144,7 @@ export const DEFAULT_MODEL_BY_PROVIDER: Partial<Record<ProviderDriverKind, strin
   [CURSOR_DRIVER_KIND]: "auto",
   [GROK_DRIVER_KIND]: "grok-build",
   [KIMI_DRIVER_KIND]: "kimi-for-coding",
+  [OPENROUTER_DRIVER_KIND]: "anthropic/claude-sonnet-4",
   [OPENCODE_DRIVER_KIND]: "openai/gpt-5",
 };
 
@@ -154,6 +156,7 @@ export const DEFAULT_GIT_TEXT_GENERATION_MODEL_BY_PROVIDER: Partial<
   [CLAUDE_DRIVER_KIND]: "claude-haiku-4-5",
   [CURSOR_DRIVER_KIND]: "composer-2",
   [KIMI_DRIVER_KIND]: "kimi-for-coding-highspeed",
+  [OPENROUTER_DRIVER_KIND]: "anthropic/claude-haiku-4.5",
   [OPENCODE_DRIVER_KIND]: "openai/gpt-5",
 };
 
@@ -211,5 +214,6 @@ export const PROVIDER_DISPLAY_NAMES: Partial<Record<ProviderDriverKind, string>>
   [CURSOR_DRIVER_KIND]: "Cursor",
   [GROK_DRIVER_KIND]: "Grok",
   [KIMI_DRIVER_KIND]: "Kimi Code",
+  [OPENROUTER_DRIVER_KIND]: "OpenRouter",
   [OPENCODE_DRIVER_KIND]: "OpenCode",
 };

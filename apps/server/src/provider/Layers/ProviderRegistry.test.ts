@@ -1077,6 +1077,7 @@ it.layer(Layer.mergeAll(NodeServices.layer, ServerSettingsModule.layerTest(), Te
                   cursor: { enabled: false },
                   grok: { enabled: false },
                   kimi: { enabled: false },
+                  openrouter: { enabled: false },
                   opencode: { enabled: false },
                 },
                 // `providerInstances` keys are branded `ProviderInstanceId`;
@@ -1189,6 +1190,7 @@ it.layer(Layer.mergeAll(NodeServices.layer, ServerSettingsModule.layerTest(), Te
                   cursor: { enabled: false },
                   grok: { enabled: false },
                   kimi: { enabled: false },
+                  openrouter: { enabled: false },
                   opencode: { enabled: false },
                 },
               }),
@@ -1303,6 +1305,7 @@ it.layer(Layer.mergeAll(NodeServices.layer, ServerSettingsModule.layerTest(), Te
                   cursor: { enabled: false },
                   grok: { enabled: false },
                   kimi: { enabled: false },
+                  openrouter: { enabled: false },
                   opencode: { enabled: false },
                 },
                 providerInstances: {
@@ -1375,6 +1378,9 @@ it.layer(Layer.mergeAll(NodeServices.layer, ServerSettingsModule.layerTest(), Te
                     kimi: {
                       enabled: false,
                     },
+                    openrouter: {
+                      enabled: false,
+                    },
                   },
                 }),
               ),
@@ -1444,6 +1450,7 @@ it.layer(Layer.mergeAll(NodeServices.layer, ServerSettingsModule.layerTest(), Te
                 "cursor",
                 "grok",
                 "kimi",
+                "openrouter",
                 "opencode",
               ]);
               assert.strictEqual(cursorProvider?.enabled, false);

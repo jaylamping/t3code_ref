@@ -36,6 +36,7 @@ const CUSTOM_MODEL_PLACEHOLDER_BY_KIND: Partial<Record<ProviderDriverKind, strin
   [ProviderDriverKind.make("cursor")]: "claude-sonnet-4-6",
   [ProviderDriverKind.make("grok")]: "grok-build",
   [ProviderDriverKind.make("kimi")]: "kimi-for-coding",
+  [ProviderDriverKind.make("openrouter")]: "anthropic/claude-sonnet-4",
   [ProviderDriverKind.make("opencode")]: "openai/gpt-5",
 };
 

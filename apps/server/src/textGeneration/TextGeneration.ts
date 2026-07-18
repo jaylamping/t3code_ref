@@ -13,6 +13,7 @@ export type TextGenerationProvider =
   | "cursor"
   | "grok"
   | "kimi"
+  | "openrouter"
   | "opencode";
 
 export interface CommitMessageGenerationInput {

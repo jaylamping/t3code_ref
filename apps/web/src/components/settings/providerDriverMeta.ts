@@ -5,6 +5,7 @@ import {
   GrokSettings,
   KimiSettings,
   OpenCodeSettings,
+  OpenRouterSettings,
   ProviderDriverKind,
 } from "@t3tools/contracts";
 import type * as Schema from "effect/Schema";
@@ -16,6 +17,7 @@ import {
   KimiIcon,
   OpenAI,
   OpenCodeIcon,
+  OpenRouterIcon,
 } from "../Icons";
 
 type ProviderSettingsSchema = {
@@ -76,6 +78,12 @@ export const PROVIDER_CLIENT_DEFINITIONS: readonly ProviderClientDefinition[] = 
     icon: KimiIcon,
     badgeLabel: "Early Access",
     settingsSchema: KimiSettings,
+  },
+  {
+    value: ProviderDriverKind.make("openrouter"),
+    label: "OpenRouter",
+    icon: OpenRouterIcon,
+    settingsSchema: OpenRouterSettings,
   },
   {
     value: ProviderDriverKind.make("opencode"),

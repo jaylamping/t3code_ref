@@ -223,6 +223,23 @@ export const KimiIcon: Icon = ({ className, ...props }) => (
   </svg>
 );
 
+export const OpenRouterIcon: Icon = ({ className, ...props }) => (
+  <svg
+    {...props}
+    viewBox="0 0 24 24"
+    fill="none"
+    className={cn("stroke-[#0F0F0F] dark:stroke-[#F5F5F5]", className)}
+  >
+    <circle cx="12" cy="12" r="9" strokeWidth="1.75" />
+    <path
+      d="M7 12h10M12 7l5 5-5 5"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 export const TraeIcon: Icon = (props) => (
   <svg {...props} viewBox="0 0 24 24" fill="currentColor">
     {/* Back rectangle: left strip + bottom strip drawn separately — empty bottom-left corner is the gap between them */}

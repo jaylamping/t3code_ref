@@ -767,6 +767,7 @@ function normalizeProviderModelOptions(
     "cursor",
     "grok",
     "kimi",
+    "openrouter",
     "opencode",
   ] as const) {
     const selections = coerceProviderOptionSelections(candidate?.[providerKey]);
@@ -933,6 +934,7 @@ function legacyToModelSelectionByProvider(
       "cursor",
       "grok",
       "kimi",
+      "openrouter",
       "opencode",
     ] as const) {
       const options = modelOptions[provider];
@@ -2674,6 +2676,7 @@ const composerDraftStore = create<ComposerDraftStoreState>()(
               "cursor",
               "grok",
               "kimi",
+              "openrouter",
               "opencode",
             ] as const) {
               if (!modelOptions || !(provider in modelOptions)) continue;

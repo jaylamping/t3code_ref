@@ -38,6 +38,8 @@ export function formatProviderDisplayName(provider: string | null | undefined): 
       return "Cursor";
     case "kimi":
       return "Kimi Code";
+    case "openrouter":
+      return "OpenRouter";
     case "opencode":
       return "OpenCode";
     default: {
