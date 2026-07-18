@@ -10,7 +10,7 @@
  *
  *  2. **Many drivers, one registry** — the "all drivers slice" describe
  *     block below configures one instance of every shipped driver
- *     (`codex`, `claudeAgent`, `cursor`, `grok`, `kimi`, `opencode`) in a single
+ *     (`codex`, `claudeAgent`, `cursor`, `grok`, `kimi`, `openrouter`, `opencode`) in a single
  *     `ProviderInstanceConfigMap` and asserts the registry boots them all
  *     without cross-contamination. This proves the driver SPI is uniform
  *     across every provider — any driver plugs into the registry through
@@ -18,9 +18,9 @@
  *
  * Every instance in these tests is configured with `enabled: false` so the
  * provider-status checks short-circuit to pending/disabled snapshots
- * without trying to spawn real `codex` / `claude` / `agent` / `grok` / `kimi` / `opencode`
- * binaries. That keeps the assertions focused on registry routing
- * behaviour rather than the runtime details of each provider.
+ * without trying to spawn real `codex` / `claude` / `agent` / `grok` / `kimi` /
+ * `openrouter` / `opencode` binaries. That keeps the assertions focused on
+ * registry routing behaviour rather than the runtime details of each provider.
  */
 import { describe, expect, it } from "@effect/vitest";
 import * as NodeServices from "@effect/platform-node/NodeServices";
@@ -30,8 +30,8 @@ import {
   type CursorSettings,
   type GrokSettings,
   type KimiSettings,
-  type OpenRouterSettings,
   type OpenCodeSettings,
+  type OpenRouterSettings,
   ProviderDriverKind,
   type ProviderInstanceConfigMap,
   ProviderInstanceId,
@@ -462,6 +462,14 @@ describe("ProviderInstanceRegistryLive — all drivers slice", () => {
       expect(kimiSnapshot.driver).toBe(kimiDriverKind);
       expect(kimiSnapshot.enabled).toBe(false);
       expect(kimiSnapshot.continuation?.groupKey).toBe(`${kimiDriverKind}:instance:${kimiId}`);
+
+      const openRouterSnapshot = yield* openRouter!.snapshot.getSnapshot;
+      expect(openRouterSnapshot.instanceId).toBe(openRouterId);
+      expect(openRouterSnapshot.driver).toBe(openRouterDriverKind);
+      expect(openRouterSnapshot.enabled).toBe(false);
+      expect(openRouterSnapshot.continuation?.groupKey).toBe(
+        `${openRouterDriverKind}:instance:${openRouterId}`,
+      );
 
       const openCodeSnapshot = yield* openCode!.snapshot.getSnapshot;
       expect(openCodeSnapshot.instanceId).toBe(openCodeId);

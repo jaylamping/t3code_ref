@@ -48,15 +48,13 @@ describe("ServerSettings.providerInstances (slice-2 invariant)", () => {
       homePath: "",
       customModels: [],
     });
-    expect(decoded.providers.openrouter).toEqual({
-      enabled: true,
-      apiKey: "",
-      baseUrl: "https://openrouter.ai/api",
-      binaryPath: "claude",
-      httpReferer: "",
-      appTitle: "T3 Code",
-      customModels: [],
-    });
+    expect(decoded.providers.openrouter.enabled).toBe(true);
+    expect(decoded.providers.openrouter.apiKey).toBe("");
+    expect(decoded.providers.openrouter.baseUrl).toBe("https://openrouter.ai/api");
+    expect(decoded.providers.openrouter.binaryPath).toBe("claude");
+    expect(decoded.providers.openrouter.httpReferer).toBe("");
+    expect(decoded.providers.openrouter.appTitle).toBe("T3 Code");
+    expect(decoded.providers.openrouter.customModels).toEqual([]);
   });
 
   it("decodes a multi-instance map mixing first-party and fork drivers", () => {

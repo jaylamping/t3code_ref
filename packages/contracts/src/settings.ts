@@ -348,10 +348,10 @@ export const OpenRouterSettings = makeProviderSettingsSchema(
       Schema.withDecodingDefault(Effect.succeed("")),
       Schema.annotateKey({
         title: "API key",
-        description: "OpenRouter API key used for model discovery and Claude Agent requests.",
+        description: "OpenRouter API key. Stored in plain text on disk.",
         providerSettingsForm: {
           control: "password",
-          placeholder: "sk-or-…",
+          placeholder: "sk-or-...",
           clearWhenEmpty: "omit",
         },
       }),
@@ -360,7 +360,7 @@ export const OpenRouterSettings = makeProviderSettingsSchema(
       Schema.withDecodingDefault(Effect.succeed("https://openrouter.ai/api")),
       Schema.annotateKey({
         title: "Base URL",
-        description: "OpenRouter Anthropic-compatible API base URL.",
+        description: "OpenRouter API base URL (Anthropic-compatible).",
         providerSettingsForm: {
           placeholder: "https://openrouter.ai/api",
           clearWhenEmpty: "omit",
@@ -369,16 +369,16 @@ export const OpenRouterSettings = makeProviderSettingsSchema(
     ),
     binaryPath: makeBinaryPathSetting("claude").pipe(
       Schema.annotateKey({
-        title: "Claude binary path",
-        description: "Path to the Claude Code binary used as the OpenRouter agent runtime.",
+        title: "Binary path",
+        description: "Path to the Claude Agent CLI used as the OpenRouter runtime.",
         providerSettingsForm: { placeholder: "claude", clearWhenEmpty: "omit" },
       }),
     ),
     httpReferer: TrimmedString.pipe(
       Schema.withDecodingDefault(Effect.succeed("")),
       Schema.annotateKey({
-        title: "HTTP-Referer",
-        description: "Optional site URL sent to OpenRouter for rankings.",
+        title: "HTTP referer",
+        description: "Optional site URL sent as HTTP-Referer for OpenRouter rankings.",
         providerSettingsForm: {
           placeholder: "https://your-app.example",
           clearWhenEmpty: "omit",
@@ -388,8 +388,8 @@ export const OpenRouterSettings = makeProviderSettingsSchema(
     appTitle: TrimmedString.pipe(
       Schema.withDecodingDefault(Effect.succeed("T3 Code")),
       Schema.annotateKey({
-        title: "X-Title",
-        description: "Optional app title sent to OpenRouter for rankings.",
+        title: "App title",
+        description: "Optional app name sent as X-Title for OpenRouter rankings.",
         providerSettingsForm: {
           placeholder: "T3 Code",
           clearWhenEmpty: "omit",
